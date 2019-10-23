@@ -49,6 +49,7 @@ class RegistHandle(tornado.web.RequestHandler):
         return self.application.db
 
     def post(self):
+        self.set_header("Content-Type", "application/json;charset=UTF-8")
         try:
             # 获取入参
             args = json_decode(self.request.body)
@@ -91,6 +92,7 @@ class LoginHandle(tornado.web.RequestHandler):
         return self.application.db
 
     def get(self):
+        self.set_header("Content-Type","text/html; charset=UTF-8")
         try:
             # 获取入参
             phone = self.get_argument("phone")
