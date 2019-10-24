@@ -24,6 +24,6 @@ python3 -m pip install mysqlclient
 
 1.0  OK 删除数据库引入的内容 
 1.1  OK 统一数据返回格式  
-2. 优化框架，添加示例
+2.   OK 优化框架，添加http请求示例
 4. 异常的统一处理,而不是报错抛出错误原因    是否需要引入实体类
 3. 数据请求写法整理,主要是 content-type   www-form-data形式  以及json的形式 

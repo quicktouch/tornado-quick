@@ -42,6 +42,28 @@ def http_error_response(self, code=-1, msg="failed"):
     }))
 
 
+def http_error_with_reason(self, code=-1, reason="", msg="failed"):
+    """
+    返回失败的数据格式
+    :param reason: 错误原因
+    :param self:  response
+    :param code:  错误编码,默认为-1
+    :param msg:   错误提示信息,如果不提供信息,则使用错误编码对应的错误提示或使用默认错误信息
+    """
+    show_msg = msg
+    if msg is None or msg == "failed":
+        try:
+            show_msg = ERROR_CODE[code]
+        except:
+            show_msg = "failed"
+    self.write(json.dumps({
+        "succ": False,
+        "code": code,
+        "msg": show_msg,
+        "reason": reason
+    }))
+
+
 def save_files(file_metas, in_rel_path, type='image'):
     """
     保存图片
